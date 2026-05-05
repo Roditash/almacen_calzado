@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Almacén de Calzado "El Paso Perfecto"</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <i class="fas fa-shoe-prints"></i>
+        <div class="logo-text">
+          <h1>El Paso Perfecto</h1>
+          <span>Almacén de Calzado</span>
+        </div>
+      </div>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="#productos" class="nav-link"><i class="fas fa-shoe-prints"></i> Productos</a></li>
+          <li><a href="#contacto" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="#evidencias" class="nav-link"><i class="fas fa-camera-retro"></i> Evidencias</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- BANNER / HERO -->
+  <section id="inicio" class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">★ Calidad Premium ★</span>
+      <h2>Camina con <span class="highlight">Estilo</span></h2>
+      <p>Descubre las mejores marcas de calzado: Nike, Adidas, Vans, Puma, Converse y más. Todo en un solo lugar.</p>
+      <div class="hero-buttons">
+        <a href="#productos" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Ver Catálogo</a>
+        <a href="#contacto" class="btn btn-secondary"><i class="fas fa-phone"></i> Contáctanos</a>
+      </div>
+    </div>
+    <div class="hero-shapes">
+      <span class="shape shape-1"></span>
+      <span class="shape shape-2"></span>
+      <span class="shape shape-3"></span>
+    </div>
+  </section>
+
+  <!-- INFO RÁPIDA -->
+  <section class="features-strip">
+    <div class="feature-item">
+      <i class="fas fa-truck-fast"></i>
+      <div>
+        <h4>Envíos Rápidos</h4>
+        <p>A todo el país</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-medal"></i>
+      <div>
+        <h4>Marcas Originales</h4>
+        <p>100% garantizadas</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-tags"></i>
+      <div>
+        <h4>Mejores Precios</h4>
+        <p>Ofertas todo el año</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <i class="fas fa-headset"></i>
+      <div>
+        <h4>Atención 24/7</h4>
+        <p>Estamos para ti</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="products-section">
+    <div class="section-header">
+      <span class="section-tag">Catálogo</span>
+      <h2>Nuestros Productos</h2>
+      <p>Explora nuestra selección de calzado de las mejores marcas del mundo</p>
+    </div>
+
+    <div class="filters-bar">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Nike">Nike</button>
+      <button class="filter-btn" data-filter="Adidas">Adidas</button>
+      <button class="filter-btn" data-filter="Vans">Vans</button>
+      <button class="filter-btn" data-filter="Converse">Converse</button>
+      <button class="filter-btn" data-filter="Puma">Puma</button>
+      <button class="filter-btn" data-filter="Reebok">Reebok</button>
+      <button class="filter-btn" data-filter="New Balance">New Balance</button>
+    </div>
+
+    <div id="products-grid" class="products-grid">
+      <!-- Productos cargados dinámicamente desde productos.json -->
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin"></i> Cargando productos...
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCIAS -->
+  <section id="evidencias" class="evidence-section">
+    <div class="section-header">
+      <span class="section-tag">MongoDB</span>
+      <h2>Evidencias de Consultas</h2>
+      <p>Galería de consultas realizadas en MongoDB Atlas — Base de datos <strong>almacen_calzado</strong></p>
+    </div>
+
+    <div class="polaroid-gallery" id="evidence-gallery">
+      <!-- Polaroids generados dinámicamente -->
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contact-section">
+    <div class="section-header">
+      <span class="section-tag">Contáctanos</span>
+      <h2>Visítanos o Llámanos</h2>
+      <p>Estamos listos para atenderte y ayudarte a encontrar tu calzado perfecto</p>
+    </div>
+
+    <div class="contact-grid">
+      <article class="contact-card">
+        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <h3>Teléfono</h3>
+        <p class="contact-info">+503 2222-3344</p>
+        <p class="contact-sub">Lun - Sáb: 8:00 AM - 7:00 PM</p>
+      </article>
+
+      <article class="contact-card">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>Dirección</h3>
+        <p class="contact-info">Av. Independencia #123</p>
+        <p class="contact-sub">San Salvador, El Salvador</p>
+      </article>
+
+      <article class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h3>Correo</h3>
+        <p class="contact-info">contacto@elpasoperfecto.com</p>
+        <p class="contact-sub">Respuesta en menos de 24 horas</p>
+      </article>
+
+      <article class="contact-card">
+        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+        <h3>WhatsApp</h3>
+        <p class="contact-info">+503 7777-8899</p>
+        <p class="contact-sub">Atención inmediata</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="logo logo-footer">
+          <i class="fas fa-shoe-prints"></i>
+          <div class="logo-text">
+            <h1>El Paso Perfecto</h1>
+            <span>Almacén de Calzado</span>
+          </div>
+        </div>
+        <p>Proyecto Escolar — Sistema de Almacén de Calzado con MongoDB Atlas.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#evidencias">Evidencias</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>Almacén de Calzado "El Paso Perfecto"</strong> — Proyecto Escolar MongoDB. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
