@@ -1,0 +1,12 @@
+[
+  { "codigo": "P001", "nombre": "Air Max 90", "marca": "Nike", "talla": 42, "color": "Blanco", "precio": 120, "stock": 15 },
+  { "codigo": "P002", "nombre": "Air Force 1", "marca": "Nike", "talla": 41, "color": "Blanco", "precio": 110, "stock": 20 },
+  { "codigo": "P003", "nombre": "Superstar", "marca": "Adidas", "talla": 42, "color": "Negro", "precio": 95, "stock": 18 },
+  { "codigo": "P004", "nombre": "Stan Smith", "marca": "Adidas", "talla": 40, "color": "Blanco", "precio": 100, "stock": 12 },
+  { "codigo": "P005", "nombre": "Chuck Taylor All Star", "marca": "Converse", "talla": 41, "color": "Rojo", "precio": 80, "stock": 10 },
+  { "codigo": "P006", "nombre": "Old Skool", "marca": "Vans", "talla": 39, "color": "Negro", "precio": 75, "stock": 14 },
+  { "codigo": "P007", "nombre": "Sk8-Hi", "marca": "Vans", "talla": 42, "color": "Negro", "precio": 85, "stock": 9 },
+  { "codigo": "P008", "nombre": "Classic Leather", "marca": "Reebok", "talla": 43, "color": "Blanco", "precio": 90, "stock": 11 },
+  { "codigo": "P009", "nombre": "574 Core", "marca": "New Balance", "talla": 42, "color": "Gris", "precio": 95, "stock": 13 },
+  { "codigo": "P010", "nombre": "RS-X", "marca": "Puma", "talla": 41, "color": "Multicolor", "precio": 105, "stock": 8 }
+]
