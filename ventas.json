@@ -1,0 +1,42 @@
+[
+  {
+    "numero_venta": "V001",
+    "fecha": { "$date": "2026-05-01T00:00:00Z" },
+    "cliente": "Carlos López",
+    "producto": "Air Max 90",
+    "cantidad": 1,
+    "total": 120
+  },
+  {
+    "numero_venta": "V002",
+    "fecha": { "$date": "2026-05-02T00:00:00Z" },
+    "cliente": "María Gómez",
+    "producto": "Superstar",
+    "cantidad": 2,
+    "total": 190
+  },
+  {
+    "numero_venta": "V003",
+    "fecha": { "$date": "2026-05-03T00:00:00Z" },
+    "cliente": "Luis Martínez",
+    "producto": "Chuck Taylor All Star",
+    "cantidad": 1,
+    "total": 80
+  },
+  {
+    "numero_venta": "V004",
+    "fecha": { "$date": "2026-05-04T00:00:00Z" },
+    "cliente": "Ana Pérez",
+    "producto": "Old Skool",
+    "cantidad": 1,
+    "total": 75
+  },
+  {
+    "numero_venta": "V005",
+    "fecha": { "$date": "2026-05-05T00:00:00Z" },
+    "cliente": "José Hernández",
+    "producto": "RS-X",
+    "cantidad": 1,
+    "total": 105
+  }
+]
