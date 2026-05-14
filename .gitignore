@@ -1,0 +1,9 @@
+# Base de datos generada automáticamente (se regenera al primer acceso)
+# Si prefieres versionar la BD para que el profesor la vea sin levantar el server,
+# comenta la línea siguiente.
+# db/*.sqlite
+
+# Logs y temporales
+*.log
+.DS_Store
+Thumbs.db

@@ -1,152 +1,138 @@
-# Almacén de Calzado "El Paso Perfecto"
+# Almacén de Calzado "El Paso Perfecto" — PHP + Base de Datos
 
-Proyecto escolar — Sistema web estático para un almacén de calzado, conectado conceptualmente a una base de datos MongoDB Atlas (`almacen_calzado`). El sitio funciona **100% en el navegador** abriendo `index.html`, sin servidor ni backend.
-
----
-
-## Objetivos del Proyecto
-
-* Mostrar dinámicamente un catálogo de productos cargado desde un archivo JSON.
-* Presentar evidencias visuales (capturas) de las consultas realizadas en MongoDB Atlas.
-* Implementar un diseño moderno, limpio y responsive utilizando únicamente HTML, CSS y JavaScript puro.
-
----
-
-## Funcionalidades Implementadas
-
-| # | Funcionalidad | Estado |
-|---|---|---|
-| 1 | Header con nombre del almacén y logo | ✔ |
-| 2 | Menú de navegación (Inicio, Productos, Contacto, Evidencias) | ✔ |
-| 3 | Banner principal (Hero) con animaciones | ✔ |
-| 4 | Strip de características destacadas | ✔ |
-| 5 | Catálogo dinámico cargado desde `productos.json` (fetch) | ✔ |
-| 6 | Filtros por marca (Nike, Adidas, Vans, etc.) | ✔ |
-| 7 | Tarjetas de producto con nombre, marca, precio, talla, color y stock | ✔ |
-| 8 | Sección de Evidencias estilo **galería de polaroids** con animaciones | ✔ |
-| 9 | Lightbox para ver evidencias ampliadas | ✔ |
-| 10 | Sección de contacto (teléfono, dirección, correo, WhatsApp) | ✔ |
-| 11 | Footer con nombre del proyecto y año | ✔ |
-| 12 | Diseño responsive (móvil, tablet, escritorio) | ✔ |
-| 13 | Efectos hover, sombras suaves y animaciones | ✔ |
-| 14 | Menú móvil hamburguesa | ✔ |
-| 15 | Scroll-spy (sección activa en la navegación) | ✔ |
-
----
-
-## Estructura del Proyecto
-
-```
-/
-├── index.html          # Página principal (todas las secciones)
-├── styles.css          # Estilos generales + polaroids + responsive
-├── script.js           # Carga JSON, filtros, lightbox, menú
-├── productos.json      # 10 productos del almacén
-├── clientes.json       # 5 clientes
-├── ventas.json         # 5 ventas
-├── images/
-│   ├── evidencia1.png  # db.productos.find()
-│   ├── evidencia2.png  # { marca: "Nike" }
-│   ├── evidencia3.png  # { precio: { $gt: 25 } }
-│   ├── evidencia4.png  # { stock: { $lt: 5 } }
-│   ├── evidencia5.png  # sort({ precio: 1 })
-│   ├── evidencia6.png  # db.clientes.find()
-│   ├── evidencia7.png  # db.Ventas.find()
-│   └── evidencia8.png  # { numero_venta: "V001" }
-└── README.md
-```
-
----
-
-## URIs / Rutas Disponibles
-
-Como es un sitio estático SPA-like, la navegación es por **anclas**:
-
-| Ruta | Descripción |
-|---|---|
-| `index.html` | Página principal completa |
-| `index.html#inicio` | Banner / Hero |
-| `index.html#productos` | Catálogo dinámico de productos |
-| `index.html#evidencias` | Galería de polaroids con consultas MongoDB |
-| `index.html#contacto` | Información de contacto |
-
-**Recursos de datos (servidos como archivos estáticos):**
-
-| Recurso | Descripción |
-|---|---|
-| `productos.json` | Listado de 10 productos |
-| `clientes.json` | Listado de 5 clientes |
-| `ventas.json` | Listado de 5 ventas |
-
----
-
-## Modelo de Datos
-
-### Colección `productos`
-```json
-{ "codigo": "P001", "nombre": "Air Max 90", "marca": "Nike",
-  "talla": 42, "color": "Blanco", "precio": 120, "stock": 15 }
-```
-
-### Colección `clientes`
-```json
-{ "codigo_cliente": "C001", "nombre": "Carlos", "apellido": "López",
-  "telefono": "7777-1111", "direccion": "San Salvador" }
-```
-
-### Colección `ventas`
-```json
-{ "numero_venta": "V001", "fecha": "2026-05-01", "cliente": "Carlos López",
-  "producto": "Air Max 90", "cantidad": 1, "total": 120 }
-```
-
----
-
-## Cómo ejecutar
-
-> ⚠ Como el proyecto usa `fetch()` para cargar `productos.json`, **debe abrirse mediante un servidor local** (de lo contrario, el navegador bloquea la lectura por la política `file://`).
-
-**Opción 1 — VS Code:**
-1. Instala la extensión **Live Server**.
-2. Clic derecho sobre `index.html` → *Open with Live Server*.
-
-**Opción 2 — Python:**
-```bash
-python -m http.server 8080
-```
-Y abrir `http://localhost:8080`.
-
-**Opción 3 — Node:**
-```bash
-npx serve
-```
+Proyecto escolar — Sistema web completo en **PHP** con base de datos `almacen_calzado` (estilo MongoDB) para un almacén de calzado. Incluye catálogo dinámico, panel de base de datos con consultas en vivo, carrito de compras funcional y checkout que registra ventas en la base de datos.
 
 ---
 
 ## Tecnologías
 
-* **HTML5** semántico
-* **CSS3** (Grid, Flexbox, animaciones, variables, responsive)
-* **JavaScript ES6+** puro (fetch, async/await, IntersectionObserver)
-* **Font Awesome 6** (iconos vía CDN)
-* **Google Fonts** — Poppins + Caveat (cursiva para polaroids)
+* **Backend:** PHP 8.4 (servidor embebido)
+* **Base de datos:** SQLite con capa de abstracción `MongoLikeDB` que emula la API de MongoDB (`find`, `findOne`, `insertOne`, `$gt`, `$lt`, `sort`, `ObjectId`, etc.). Los documentos se almacenan como JSON dentro de cada "colección".
+* **Frontend:** HTML5, CSS3 (Grid, Flexbox, animaciones), JavaScript ES6+ (fetch para carrito AJAX)
+* **Fuentes / iconos:** Google Fonts (Poppins, Caveat, JetBrains Mono) + Font Awesome 6
 
 ---
 
-## Funcionalidades No Implementadas / Próximos Pasos
+## Estructura
 
-* Carrito de compras funcional (actualmente solo es animación visual).
-* Persistencia local con `localStorage`.
-* Búsqueda por texto en el catálogo.
-* Sección dinámica de clientes y ventas (los JSON existen pero no se renderizan).
-* Modo oscuro.
-* Formulario de contacto funcional.
-* Conexión real a MongoDB (requeriría backend, fuera de alcance del proyecto escolar).
+```
+/
+├── index.php              # Página principal (hero, catálogo, contacto)
+├── db.php                 # Panel de la base de datos (conexión, colecciones, consultas, evidencias)
+├── carrito.php            # Carrito de compras (sesión PHP)
+├── checkout.php           # Finalizar compra (registra cliente y venta en DB)
+├── includes/
+│   ├── db.php             # Conexión + emulador MongoDB sobre SQLite
+│   ├── helpers.php        # Helpers + carrito en sesión
+│   ├── header.php         # Header/nav común
+│   └── footer.php         # Footer común
+├── db/
+│   └── almacen_calzado.sqlite   # Base de datos (auto-creada y poblada al primer acceso)
+├── images/
+│   ├── evidencia1.png ... evidencia8.png   # Capturas de MongoDB Atlas
+├── productos.json         # Seed: 10 productos
+├── clientes.json          # Seed: 5 clientes
+├── ventas.json            # Seed: 5 ventas
+├── styles.css             # Estilos completos
+└── script.js              # Carrito AJAX + lightbox + menú
+```
+
+---
+
+## Funcionalidades
+
+| # | Funcionalidad | Estado |
+|---|---|---|
+| 1 | Página principal con hero, productos y contacto | ✔ |
+| 2 | Catálogo cargado dinámicamente desde la BD | ✔ |
+| 3 | Filtros por marca (Nike, Adidas, Vans, etc.) | ✔ |
+| 4 | **Carrito de compras funcional** (añadir, modificar cantidad, eliminar, vaciar) | ✔ |
+| 5 | Carrito persistente en sesión PHP | ✔ |
+| 6 | Añadir al carrito vía **AJAX** (sin recargar página) | ✔ |
+| 7 | Checkout que registra cliente y ventas en la BD | ✔ |
+| 8 | **Sección `db.php`** con estado de conexión en vivo | ✔ |
+| 9 | Visualizador de colecciones estilo MongoDB Compass (JSON + ObjectId) | ✔ |
+| 10 | **8 consultas del rubro** ejecutadas en vivo contra la BD | ✔ |
+| 11 | Mongo Shell simulada con `db.runCommand({ping:1})`, `show collections`, `db.stats()` | ✔ |
+| 12 | Galería polaroid con capturas originales de MongoDB Atlas | ✔ |
+| 13 | Diseño responsive (móvil, tablet, escritorio) | ✔ |
+| 14 | Menú móvil hamburguesa | ✔ |
+| 15 | Toast de notificaciones + contador animado del carrito | ✔ |
+
+---
+
+## Modelo de Datos
+
+Base de datos: **`almacen_calzado`** — 3 colecciones.
+
+### `productos` (10 documentos)
+```json
+{ "_id": "ObjectId(...)", "codigo": "P001", "nombre": "Air Max 90",
+  "marca": "Nike", "talla": 42, "color": "Blanco", "precio": 120, "stock": 15 }
+```
+
+### `clientes` (5 documentos)
+```json
+{ "_id": "ObjectId(...)", "codigo_cliente": "C001", "nombre": "Carlos",
+  "apellido": "López", "telefono": "7777-1111", "direccion": "San Salvador" }
+```
+
+### `ventas` (5 documentos)
+```json
+{ "_id": "ObjectId(...)", "numero_venta": "V001", "fecha": "2026-05-01",
+  "cliente": "Carlos López", "producto": "Air Max 90", "cantidad": 1, "total": 120 }
+```
+
+---
+
+## Consultas implementadas (Parte 3 del rubro)
+
+Las 8 consultas se ejecutan en vivo al abrir `db.php`:
+
+| # | Consulta MongoDB | Código PHP equivalente |
+|---|---|---|
+| 1 | `db.productos.find()` | `db()->find('productos')` |
+| 2 | `db.productos.find({ marca: "Nike" })` | `db()->find('productos', ['marca' => 'Nike'])` |
+| 3 | `db.productos.find({ precio: { $gt: 25 } })` | `db()->find('productos', ['precio' => ['$gt' => 25]])` |
+| 4 | `db.productos.find({ stock: { $lt: 5 } })` | `db()->find('productos', ['stock' => ['$lt' => 5]])` |
+| 5 | `db.productos.find().sort({ precio: 1 })` | `db()->find('productos', [], ['sort' => ['precio' => 1]])` |
+| 6 | `db.clientes.find()` | `db()->find('clientes')` |
+| 7 | `db.ventas.find()` | `db()->find('ventas')` |
+| 8 | `db.ventas.findOne({ numero_venta: "V001" })` | `db()->findOne('ventas', ['numero_venta' => 'V001'])` |
+
+---
+
+## Cómo ejecutar
+
+### Opción 1 — PHP servidor embebido (recomendado)
+```bash
+php -S 0.0.0.0:8080
+```
+Luego abre: `http://localhost:8080/index.php`
+
+> La base de datos `db/almacen_calzado.sqlite` se crea automáticamente la primera vez y se puebla con los 10 productos, 5 clientes y 5 ventas desde los archivos JSON.
+
+### Opción 2 — XAMPP / WAMP / LAMP
+1. Copia toda la carpeta a `htdocs/almacen-calzado/`
+2. Abre `http://localhost/almacen-calzado/index.php`
+
+---
+
+## Flujo de uso
+
+1. **Inicio (`index.php`)** → ver catálogo cargado desde la BD, filtrar por marca, añadir productos al carrito.
+2. **Carrito (`carrito.php`)** → modificar cantidades, eliminar, vaciar.
+3. **Checkout (`checkout.php`)** → llenar datos del cliente; al confirmar:
+   - Si el teléfono ya existe → reutiliza el cliente.
+   - Si es nuevo → genera código `C00X` y lo inserta en la colección `clientes`.
+   - Genera una venta `V00X` por cada producto del carrito en la colección `ventas`.
+4. **DB (`db.php`)** → verificar conexión, ver colecciones, ejecutar consultas, ver evidencias.
 
 ---
 
 ## Autor
 
 **Proyecto Escolar 2026** — *Almacén de Calzado "El Paso Perfecto"*
+Base de datos `almacen_calzado` · PHP · MongoDB-compatible API.
 
 © 2026 — Todos los derechos reservados.
